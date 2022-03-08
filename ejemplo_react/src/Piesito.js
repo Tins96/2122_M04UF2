@@ -1,15 +1,33 @@
 import './Piesito.css';
+import React from 'react';
 
-function Piesito () 
+class Piesito extends React.Component
 {
 
-return(
-	<footer>
-	<p>Copy(c)2022 La Mamá de Piesito</p>
-	</footer>
-	);
+	constructor (props){
+		super (props);
+		
+		this.state = {
+			date: new Date()
+		};
+
+			setInterval( () => {
+				this.setState({
+					date: new Date()
+				});
+			}, 1000);
+	}
+
+	render(){
+
+		return(
+			<footer>
+				<p>Copy(c)2022 La Mamá de Piesito</p>
+				<p>{this.state.date.toString()}</p>
+			</footer> 
+		);
+
+	}
 
 }
-
-
 export default Piesito;
